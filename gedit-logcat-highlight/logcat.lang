@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+--> 
+<language id="logcat" _name="logcat" version="2.0" _section="Sources">
+  <metadata>
+    <property name="mimetypes">text/x-java</property>
+    <property name="globs">*.logcat</property>
+  </metadata>
+
+  <styles>
+    <style id="debug" _name="Debug" map-to="def:type"/>
+    <style id="info" _name="Info" map-to="def:string"/>
+    <style id="warn" _name="Warn" map-to="def:keyword"/>
+    <style id="error" _name="Error" map-to="def:decimal"/>
+  </styles>
+
+  <definitions>
+
+    <context id="debug" style-ref="debug">
+      <match>.*D\/.*</match>
+    </context>
+
+    <context id="info" style-ref="info">
+      <match>.*I\/.*</match>
+    </context>
+
+    <context id="warn" style-ref="warn">
+      <match>.*W\/.*</match>
+    </context>
+    
+    <context id="error" style-ref="error">
+      <match>.*E\/.*</match>
+    </context>
+    
+    <context id="logcat" class="no-spell-check">
+      <include>
+        <context ref="debug"/>
+        <context ref="info"/>
+        <context ref="warn"/>
+        <context ref="error"/>
+      </include>
+    </context>
+  
+  </definitions>
+</language>
